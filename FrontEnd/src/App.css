@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgba(248, 212, 4, 0.952);
+  vertical-align: middle;
 }
 
 .App-logo {
@@ -39,10 +41,18 @@
 
 .logo {
   /*Adicione aqui o estilo desta classe*/
+  height: 15rem;
+  margin: 1rem;
+  border: black;
+  border-style: solid;
+
+  border-radius: 2rem;
+  
 }
 
 .appbar {
   /*Adicione aqui o estilo desta classe*/
+  justify-content: center;
 }
 
 .subtitle {
