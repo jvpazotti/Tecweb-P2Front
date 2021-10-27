@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Note from "./components/Note";
 import Formulario from "./components/Formulario";
+import Search from "./components/Search";
 import "./App.css";
 
 function App() {
-  const [notes, setNotes] = useState([]); // Remova o array de notes que existia na versão anterior
+
+  const [notes, setNotes] = useState([]); 
 
   const loadData = () => {
     axios
@@ -20,10 +22,10 @@ function App() {
   return (
     <div className="App">
       <div className="appbar">
-        <img src="/logo-getit.png" className="logo" />
-        <span className="subtitle">Como o Post-it, mas com outro verbo</span>
+        <img src="/Genius-logo.png" className="logo" />
       </div>
       <main className="container">
+        <Search/>
         <Formulario onSubmitFormulario={loadData}/>
         <div className="card-container">
           {notes.map((note) => (
