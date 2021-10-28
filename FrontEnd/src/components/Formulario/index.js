@@ -1,8 +1,10 @@
 import {useState} from "react";
+import React from "react";
 import axios from "axios";
 
 import "./index.css";
 export default function Formulario(props){
+    
     const [titleNote, setTitle] = useState("");
     const [contentNote, setContent] = useState("");
     
