@@ -65,4 +65,9 @@
 
 .card-container {
   /*Adicione aqui o estilo desta classe*/
+  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
 }
