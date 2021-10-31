@@ -39,20 +39,11 @@
   }
 }
 
-.logo {
-  /*Adicione aqui o estilo desta classe*/
-  height: 15rem;
-  margin: 1rem;
-  border: black;
-  border-style: solid;
 
-  border-radius: 2rem;
-  
-}
 
 .appbar {
   /*Adicione aqui o estilo desta classe*/
-  justify-content: center;
+  
 }
 
 .subtitle {
