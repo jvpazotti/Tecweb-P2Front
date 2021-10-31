@@ -30,7 +30,7 @@
     color: white;
     height: 3rem;
     border-radius:2rem;
-    padding-left: 4rem;
+    padding-left: 2rem;
     padding-right: 2rem;
     font-size: large;
 }
@@ -48,4 +48,15 @@
     justify-content: center;
     font-family:"Permanent Marker", cursive;
 
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input{
+    text-align: center;
 }

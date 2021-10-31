@@ -13,6 +13,7 @@ import Search from "./components/Search";
 import "./App.css";
 import Home from "./components/Home";
 import Button from "./components/Button";
+import Favorites from "./components/Favorites";
 
 
 
@@ -28,6 +29,10 @@ function App() {
         <Route exact path="/">
           <Home/>
         </Route>
+        <Route path="/favorites">
+          <Favorites/>
+        </Route>
+        
       </Switch>
     </Router>
 
