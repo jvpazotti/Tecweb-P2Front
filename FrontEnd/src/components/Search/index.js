@@ -67,7 +67,7 @@ export default function Search(props){
                     className="input"
                     type="text"
                     id="header-search"
-                    placeholder="Search Artists"
+                    placeholder="Search Artists/Songs"
                     value={Name}
                     onChange={nameChanged}
                     name="s" 
