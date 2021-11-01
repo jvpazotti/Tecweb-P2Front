@@ -51,3 +51,11 @@
 .favorite:active {
   background-color: rgba(255, 244, 183, 0.952);
 }
+
+.invisible {
+  display: none;
+}
+
+.button2 {
+  border:0;
+}
