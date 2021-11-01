@@ -9,6 +9,7 @@ export default function Note(props) {
         <p>
           {props.children}
         </p>
+        <img class="favorite" src="estrela.png"></img>
       </div>
     </div>
   );

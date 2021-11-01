@@ -9,7 +9,6 @@ import {
   } from "react-router-dom";
 import "./index.css";
 import Note from "../Note";
-import Button from "../Button";
 export default function Search(props){
 
     const [Name, setName] = useState("");
