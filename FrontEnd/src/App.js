@@ -12,7 +12,6 @@ import Formulario from "./components/Formulario";
 import Search from "./components/Search";
 import "./App.css";
 import Home from "./components/Home";
-import Button from "./components/Button";
 import Favorites from "./components/Favorites";
 
 

@@ -9,19 +9,20 @@ import {
   } from "react-router-dom";
 import "./index.css";
 import Note from "../Note";
-import Button from "../Button";
 export default function Search(props){
 
     const [Name, setName] = useState("");
 
     const [songs, setSongs] = useState([]);
 
+    const [id, setId] = useState([]);
+
     const loadData = (search) => {
         var options = {
-       method: 'GET',
-       url: 'https://genius.p.rapidapi.com/search',
-       params: {q:search},
-       headers: {
+          method: 'GET',
+          url: 'https://genius.p.rapidapi.com/search',
+          params: {q:search},
+          headers: {
          'x-rapidapi-host': 'genius.p.rapidapi.com',
          'x-rapidapi-key': '4e32c1df78msh539e6d5cfcb313dp17b785jsn97e18e394b47'
        }
@@ -29,11 +30,14 @@ export default function Search(props){
        axios.request(options).then((response)=> {
    
          let music = []
+
+         console.log(response.data)
    
          for (let i = 0; i<10; i++) {
+           let id = response.data.response.hits[`${i}`]["result"]["id"]
            let song = response.data.response.hits[`${i}`]["result"]["title"]
            let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
-           music.push([song, artist])
+           music.push([song, artist, id])
          }
    
          setSongs(music);
@@ -47,10 +51,6 @@ export default function Search(props){
         
         loadData(Name);
 
-       
-
-        
-            
     }
 
     const nameChanged = (event) =>{
@@ -84,8 +84,8 @@ export default function Search(props){
             
             <div className="card-container">
                 {songs.map((hit) => (
-                <Note title={hit[0]}>
-                {hit[1]}
+                <Note>
+                {hit}
                 </Note>
                 ))}
                
