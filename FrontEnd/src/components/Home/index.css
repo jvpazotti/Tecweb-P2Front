@@ -1,6 +1,6 @@
 
 
-.button2{
+.button3{
     display: flex;
     background-color: black;
    color: white;
@@ -13,8 +13,8 @@
  
  }
 
- .button2:hover {
-    transform: scale(0.8);
+ .button3:hover {
+    transform: scale(1.2);
     transition-duration: 0.5s;
 }
 
