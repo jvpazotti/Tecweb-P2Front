@@ -10,8 +10,8 @@ export default function Note(props) {
 
   const loadData = (id) => {
 
-    axios.get(`http://localhost:3000/${id}`).then((response) => {
-        console.log(response.data);
+    axios.post(`http://127.0.0.1:8000/`,{'song_id':id}).then((response) => {
+        console.log(response);
     });
 
   }
