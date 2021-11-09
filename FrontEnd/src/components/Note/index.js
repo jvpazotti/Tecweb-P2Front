@@ -4,26 +4,16 @@ import axios from "axios";
 
 export default function Note(props) {
 
-  const [favorites, setFavorites] = useState([])
+  // const [favorites, setFavorites] = useState([])
+
+  
 
   const loadData = (id) => {
-    var axios = require("axios").default;
 
-    var options = {
-      method: 'GET',
-      url: `https://genius.p.rapidapi.com/songs/${id}`,
-      headers: {
-        'x-rapidapi-host': 'genius.p.rapidapi.com',
-        'x-rapidapi-key': 'SIGN-UP-FOR-KEY'
-      }
-    };
-    axios.request(options).then((response) => {
-      console.log(response.data);
-      setFavorites([response.data]);
-    })
-    .catch((error) => {
-      console.error(error);
+    axios.post(`http://127.0.0.1:8000/`,{'song_id':id}).then((response) => {
+        console.log(response);
     });
+
   }
 
   const SetFavorite = (event) => {

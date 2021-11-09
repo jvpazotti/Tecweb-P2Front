@@ -54,12 +54,14 @@
 
 .invisible {
   display: none;
+  
 }
 
 .button2 {
   border:0;
   padding:0;
   margin:0;
+  background-color: black;
 }
 
 .button2:hover {

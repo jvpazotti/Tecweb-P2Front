@@ -31,7 +31,6 @@ function App() {
         <Route path="/favorites">
           <Favorites/>
         </Route>
-        
       </Switch>
     </Router>
 
