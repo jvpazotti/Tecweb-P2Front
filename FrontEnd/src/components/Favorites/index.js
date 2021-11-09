@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import "./index.css";
 
 export default function Favorites(){
     
@@ -9,6 +9,7 @@ export default function Favorites(){
     useEffect(() => {
 
         var list = [];
+        var promises=[];
     
         axios.get("http://localhost:8000/favoritesBack").then((response) => {
     
@@ -29,28 +30,39 @@ export default function Favorites(){
                     }
                 };
     
-                axios.request(options).then((response) => {
-                    // console.log(response.data.response.song);
-                    list.push(response.data.response.song.title);
-                });
+                // axios.request(options).then((response) => {
+                //     // console.log(response.data.response.song);
+                //     list.push(response.data.response.song.title);
+                    
+                // });
+
+                promises.push(axios.request(options));
                
             }
+
+            Promise.all(promises).then((values)=>{
+                console.log(values);
+
+                for (var [key, song] in Object.entries(values)){
+                    console.log(values[key]);
+                    list.push([values[key].data.response.song.artist_names,values[key].data.response.song.title]);
+                }
+                setFavorites(list);
+            })
             
-            setFavorites(list);
-            
-    
         });
     }, []);
     
     console.log(favorites);
     
+
     return(
 
-        <div>
+        <div className="songs">
             
                 {favorites.map((song) => (
-                    <p>
-                    {song}
+                    <p className="names">
+                    {song[0]} - {song[1]}
                     </p>
                 ))}
            
