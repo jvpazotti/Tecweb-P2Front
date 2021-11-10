@@ -1,8 +1,11 @@
 .songs{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin: 1rem;
+
+   
+
 }
 
 .names{
@@ -10,4 +13,23 @@
     border: black;
     border-style: solid;
     border-radius: 2rem;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+
 }
+
+.divisor{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.display{
+    background-color: rgba(248, 212, 4, 0.952);
+    border: none;
+}
+
