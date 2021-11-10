@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
 
+
 export default function Favorites(){
     
     const [favorites, setFavorites] = useState([]);
@@ -52,6 +53,9 @@ export default function Favorites(){
             
         });
     }, []);
+
+
+
     
     console.log(favorites);
     
@@ -59,12 +63,19 @@ export default function Favorites(){
     return(
 
         <div className="songs">
+
+            <p>Minhas Músicas</p>
             
                 {favorites.map((song) => (
+                    <div className="divisor">
                     <p className="names">
                     {song[0]} - {song[1]}
                     </p>
+                    <button className="display" ><img src="trash-fill.svg"/></button>
+                    </div>
                 ))}
+
+
            
         </div>
 
