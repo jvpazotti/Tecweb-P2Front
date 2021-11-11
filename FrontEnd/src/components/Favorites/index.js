@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,React } from "react";
 import axios from "axios";
+import SingleFav from "../SingleFav";
 import "./index.css";
 
 
@@ -11,14 +12,11 @@ export default function Favorites(){
 
         var list = [];
         var promises=[];
+        var ids = [];
     
         axios.get("http://localhost:8000/favoritesBack").then((response) => {
-    
-            // console.log(response.data[0]);
-    
+        
             for (var [key, song] in Object.entries(response.data)) {
-    
-                // console.log(response.data[key].song_id);
     
                 let song_id = response.data[key].song_id;
     
@@ -30,36 +28,28 @@ export default function Favorites(){
                         'x-rapidapi-key': '4e32c1df78msh539e6d5cfcb313dp17b785jsn97e18e394b47'
                     }
                 };
-    
-                // axios.request(options).then((response) => {
-                //     // console.log(response.data.response.song);
-                //     list.push(response.data.response.song.title);
-                    
-                // });
 
                 promises.push(axios.request(options));
+                ids.push(response.data[key].id);
                
             }
 
             Promise.all(promises).then((values)=>{
                 console.log(values);
-
+                let i = 0;
                 for (var [key, song] in Object.entries(values)){
                     console.log(values[key]);
-                    list.push([values[key].data.response.song.artist_names,values[key].data.response.song.title]);
+                    list.push([values[key].data.response.song.artist_names, values[key].data.response.song.title, ids[i]]);
+                    i++;
                 }
                 setFavorites(list);
             })
             
         });
     }, []);
-
-
-
     
     console.log(favorites);
-    
-
+      
     return(
 
         <div className="songs">
@@ -67,16 +57,11 @@ export default function Favorites(){
             <p>Minhas Músicas</p>
             
                 {favorites.map((song) => (
-                    <div className="divisor">
-                    <p className="names">
-                    {song[0]} - {song[1]}
-                    </p>
-                    <button className="display" ><img src="trash-fill.svg"/></button>
-                    </div>
+                    <SingleFav>
+                        {song}
+                    </SingleFav>
                 ))}
 
-
-           
         </div>
 
     );
