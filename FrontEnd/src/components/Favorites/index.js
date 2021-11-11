@@ -37,8 +37,13 @@ export default function Favorites(){
                 console.log(values);
                 let i = 0;
                 for (var [key, song] in Object.entries(values)){
-                    console.log(values[key]);
-                    list.push([values[key].data.response.song.artist_names, values[key].data.response.song.title, ids[i]]);
+                    song = values[key].data.response.song
+                    console.log(song.media);
+                    var url = "";
+                    if (song.media[song.media.length-1].provider == "youtube") {
+                        url = song.media[song.media.length-1].url;
+                    }
+                    list.push([song.artist_names, song.title, ids[i], url]);
                     i++;
                 }
                 setFavorites(list);
