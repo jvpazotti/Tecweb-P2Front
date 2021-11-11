@@ -8,7 +8,8 @@ export default function Favorites(){
     
     const [favorites, setFavorites] = useState([]);
 
-    useEffect(() => {
+    const loadData = () => {
+        
 
         var list = [];
         var promises=[];
@@ -28,12 +29,10 @@ export default function Favorites(){
                         'x-rapidapi-key': '4e32c1df78msh539e6d5cfcb313dp17b785jsn97e18e394b47'
                     }
                 };
-
                 promises.push(axios.request(options));
                 ids.push(response.data[key].id);
-               
+            
             }
-
             Promise.all(promises).then((values)=>{
                 console.log(values);
                 let i = 0;
@@ -46,7 +45,10 @@ export default function Favorites(){
             })
             
         });
-    }, []);
+    };
+
+    useEffect(() => {loadData();},[])
+    
     
     console.log(favorites);
       
@@ -57,7 +59,7 @@ export default function Favorites(){
             <p>Minhas Músicas</p>
             
                 {favorites.map((song) => (
-                    <SingleFav>
+                    <SingleFav reloadData={loadData}>
                         {song}
                     </SingleFav>
                 ))}
