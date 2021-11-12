@@ -40,8 +40,13 @@ export default function Favorites(){
                     song = values[key].data.response.song
                     console.log(song.media);
                     var url = "";
-                    if (song.media[song.media.length-1].provider == "youtube") {
-                        url = song.media[song.media.length-1].url;
+                    for (var[key,plat] in song.media){
+                        if (song.media[key].provider=="youtube"){
+                            url=song.media[key].url
+                        }
+                    }
+                    if(url=="" && song.media.length>0){
+                        url=song.media[0].url
                     }
                     list.push([song.artist_names, song.title, ids[i], url]);
                     i++;
@@ -61,7 +66,7 @@ export default function Favorites(){
 
         <div className="songs">
 
-            <p>Minhas Músicas</p>
+            <p className='titulo'>Minhas Músicas</p>
             
                 {favorites.map((song) => (
                     <SingleFav reloadData={loadData}>

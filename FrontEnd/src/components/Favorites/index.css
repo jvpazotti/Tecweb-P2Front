@@ -17,7 +17,9 @@
     background-color: black;
     text-align: center;
     padding: 1rem;
-    width: 100%;
+    width: 18rem;
+    text-decoration: none;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 }
 
@@ -31,5 +33,21 @@
 .display{
     background-color: rgba(248, 212, 4, 0.952);
     border: none;
+    border-radius: 1rem;
+    height: 1rem;
+}
+
+.display:hover{
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+}
+
+.display:active{
+    background-color: red;
+
+}
+
+.titulo{
+    margin: 1rem;
 }
 

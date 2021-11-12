@@ -21,9 +21,7 @@ export default function SingleFav(props){
     return(
 
         <div className="divisor">
-            <p className="names">
-                {props.children[0]} - {props.children[1]}
-            </p>
+            <a className="names" target="_blank" href={props.children[3]}>{props.children[0]} - {props.children[1]}</a>
             <form onSubmit={DeleteFavorite}>
                 <button className="display" type="submit"><img src="trash-fill.svg"/></button>
             </form>
