@@ -10,6 +10,7 @@
    margin: 1rem;
    cursor: pointer;
    align-self: flex-end;
+   text-decoration: none;
  
  }
 
@@ -26,14 +27,32 @@
 
 .logo {
     /*Adicione aqui o estilo desta classe*/
-    height: 15rem;
+    height: 10rem;
     margin: 1rem;
-    border: black;
-    border-style: solid;
-  
+    border: none;
     align-self: center;
     justify-content: center;
   
     border-radius: 2rem;
     
   }
+
+.link{
+    text-decoration: none;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    
+    
+}
+
+.textao{
+    margin-left: 2rem;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-style: italic;
+}

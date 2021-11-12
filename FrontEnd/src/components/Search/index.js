@@ -67,7 +67,7 @@ export default function Search(props){
                     className="input"
                     type="text"
                     id="header-search"
-                    placeholder="Search Artists/Songs"
+                    placeholder="Buscar Artistas/Músicas"
                     value={Name}
                     onChange={nameChanged}
                     name="s" 
@@ -80,7 +80,7 @@ export default function Search(props){
        
             </form>
 
-            <p className="texto"> Músicas do momento : </p>
+            <p className="texto"> Músicas do momento:</p>
             
             <div className="card-container">
                 {songs.map((hit) => (

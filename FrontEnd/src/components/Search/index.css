@@ -32,7 +32,9 @@
     border-radius:2rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    width: 15rem;
     font-size: large;
+    text-align: center;
 }
 
 .button:hover {
@@ -46,7 +48,8 @@
     display: flex;
     margin: 1rem;
     justify-content: center;
-    font-family:"Permanent Marker", cursive;
+    font-family:  "Helvetica Neue", sans-serif;
+    font-weight: bolder;
 
 }
 

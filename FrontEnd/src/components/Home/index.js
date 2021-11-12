@@ -16,9 +16,12 @@ export default function Home(){
 
         <div className="App">
       <div className="appbar">
-        <img src="/Genius-logo.png" className="logo" />
-        <Link to="/favorites">
-        <button className="button3" >Músicas Favoritas</button>
+        <div className="header">
+        <img src="/DUMMiOS.png" className="logo"/>
+        <p className="textao">Música para Leigos</p>
+        </div>
+        <Link className="link" to="/favorites">
+        <button className="button3">Músicas Favoritas</button>
         </Link>
       </div>
       <main className="container">
