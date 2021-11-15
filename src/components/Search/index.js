@@ -32,6 +32,7 @@ export default function Search(props){
         for (var [key, song] in Object.entries(response.data)) {
           favs.push(response.data[key].song_id)
         }
+        console.log(favs);
       }).then(
         axios.request(options).then((response)=> {
   
