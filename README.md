@@ -1,3 +1,3 @@
 # Tecweb-P2Front
  
-https://dummiosfront.herokuapp.com/ - Heroku
+https://dummios.herokuapp.com/ - Heroku
