@@ -32,29 +32,28 @@ export default function Search(props){
         for (var [key, song] in Object.entries(response.data)) {
           favs.push(response.data[key].song_id)
         }
-      })
-
-      axios.request(options).then((response)=> {
+      }).then(
+        axios.request(options).then((response)=> {
   
-        let music = []
-        console.log(response.data)
-  
-        for (let i = 0; i<10; i++) {
-          let id = response.data.response.hits[`${i}`]["result"]["id"]
-          let song = response.data.response.hits[`${i}`]["result"]["title"]
-          let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
-          if (id in favs) {
-            music.push([song, artist, id, true])
-          } else {
-            music.push([song, artist, id, false])
+          let music = []
+          console.log(response.data)
+    
+          for (let i = 0; i<10; i++) {
+            let id = response.data.response.hits[`${i}`]["result"]["id"]
+            let song = response.data.response.hits[`${i}`]["result"]["title"]
+            let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
+            if (id in favs) {
+              music.push([song, artist, id, true])
+            } else {
+              music.push([song, artist, id, false])
+            }
+            
           }
-          
-        }
-  
-        setSongs(music);
-      
-      })
-     }
+    
+          setSongs(music);
+        })
+      )  
+    }
 
     const GetArtist = (event) => {
         
