@@ -15,7 +15,7 @@ export default function Favorites(){
         var promises=[];
         var ids = [];
     
-        axios.get("http://localhost:8000/favoritesBack").then((response) => {
+        axios.get("https://dummiosback.herokuapp.com/favoritesBack").then((response) => {
         
             for (var [key, song] in Object.entries(response.data)) {
     

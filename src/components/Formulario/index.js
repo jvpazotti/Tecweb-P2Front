@@ -20,7 +20,7 @@ export default function Formulario(props){
     const CreateNote = (event) => {
         event.preventDefault();
         axios
-            .post("http://localhost:8000/api/notes/", {title:titleNote, content:contentNote})
+            .post("https://dummiosback.herokuapp.com/api/notes/", {title:titleNote, content:contentNote})
             .then((response) => {
                 setTitle("");
                 setContent("");

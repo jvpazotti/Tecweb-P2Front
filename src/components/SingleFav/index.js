@@ -5,7 +5,7 @@ export default function SingleFav(props){
 
     
     const loadData = (id) => {
-        axios.post(`https://dummios.herokuapp.com/del`,{'id':id}).then((response) => {
+        axios.post(`https://dummiosback.herokuapp.com/del`,{'id':id}).then((response) => {
             console.log(response);
             props.reloadData();
         });
