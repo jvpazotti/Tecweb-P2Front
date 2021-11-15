@@ -6,14 +6,24 @@ export default function Note(props) {
 
   // const [favorites, setFavorites] = useState([])
 
-  
+  let image = ""
+  if (props.children[3]) {
+    image = "favoritado.png"
+  } else {
+    image = "estrela.png"
+  }
 
   const loadData = (id) => {
 
-    axios.post(`https://dummiosback.herokuapp.com`,{'song_id':id}).then((response) => {
+    if (props.children[3]) {
+      axios.post("https://dummiosback.herokuapp.com/del",{'id':id}).then((response) => {
         console.log(response);
-    });
-
+      });
+    } else {
+      axios.post("https://dummiosback.herokuapp.com",{'id':id}).then((response) => {
+        console.log(response);
+      });
+    }
   }
 
   const SetFavorite = (event) => {
@@ -30,7 +40,7 @@ export default function Note(props) {
         </p>
         <form onSubmit={SetFavorite}>
           <button className="button2" type="submit" value={props.children[2]}>
-            <img className="favorite" src="estrela.png"></img>
+            <img className="favorite" src={image}></img>
           </button>
         </form>
       </div>

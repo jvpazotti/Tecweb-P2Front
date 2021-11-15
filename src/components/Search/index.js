@@ -15,34 +15,45 @@ export default function Search(props){
 
     const [songs, setSongs] = useState([]);
 
-    const [id, setId] = useState([]);
-
     const loadData = (search) => {
-        var options = {
-          method: 'GET',
-          url: 'https://genius.p.rapidapi.com/search',
-          params: {q:search},
-          headers: {
-         'x-rapidapi-host': 'genius.p.rapidapi.com',
-         'x-rapidapi-key': '4e32c1df78msh539e6d5cfcb313dp17b785jsn97e18e394b47'
-       }
-     };
-       axios.request(options).then((response)=> {
-   
-         let music = []
+      var options = {
+        method: 'GET',
+        url: 'https://genius.p.rapidapi.com/search',
+        params: {q:search},
+        headers: {
+          'x-rapidapi-host': 'genius.p.rapidapi.com',
+          'x-rapidapi-key': '4e32c1df78msh539e6d5cfcb313dp17b785jsn97e18e394b47'
+        }
+      };
 
-         console.log(response.data)
-   
-         for (let i = 0; i<10; i++) {
-           let id = response.data.response.hits[`${i}`]["result"]["id"]
-           let song = response.data.response.hits[`${i}`]["result"]["title"]
-           let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
-           music.push([song, artist, id])
-         }
-   
-         setSongs(music);
-       
-       })
+      let favs = []
+
+      axios.get("https://dummiosback.herokuapp.com/favoritesBack").then((response) => {
+        for (var [key, song] in Object.entries(response.data)) {
+          favs.push(response.data[key].song_id)
+        }
+      })
+
+      axios.request(options).then((response)=> {
+  
+        let music = []
+        console.log(response.data)
+  
+        for (let i = 0; i<10; i++) {
+          let id = response.data.response.hits[`${i}`]["result"]["id"]
+          let song = response.data.response.hits[`${i}`]["result"]["title"]
+          let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
+          if (id in favs) {
+            music.push([song, artist, id, true])
+          } else {
+            music.push([song, artist, id, false])
+          }
+          
+        }
+  
+        setSongs(music);
+      
+      })
      }
 
     const GetArtist = (event) => {
