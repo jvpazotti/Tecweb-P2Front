@@ -16,7 +16,7 @@ export default function Note(props) {
   const loadData = (id) => {
 
     if (props.children[3]) {
-      axios.post("https://dummiosback.herokuapp.com/homeDel",{'id':id}).then((response) => {
+      axios.post("https://dummiosback.herokuapp.com/searchDel",{'id':id}).then((response) => {
         console.log(response);
       });
     } else {
