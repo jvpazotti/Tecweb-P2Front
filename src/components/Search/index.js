@@ -48,7 +48,7 @@ export default function Search(props){
               console.log(`id da musica: ${id}`);
               if (id == favs[fav_key]) {
                 is_fav = true;
-              } else {
+              } else if (!is_fav) {
                 is_fav = false;
               }
             }
