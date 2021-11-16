@@ -18,12 +18,10 @@ export default function Note(props) {
     if (props.children[3]) {
       axios.post("https://dummiosback.herokuapp.com/del",{'id':id}).then((response) => {
         console.log(response);
-        props.reloadData()
       });
     } else {
       axios.post("https://dummiosback.herokuapp.com",{'id':id}).then((response) => {
         console.log(response);
-        props.reloadData()
       });
     }
 

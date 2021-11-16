@@ -101,7 +101,7 @@ export default function Search(props){
             
             <div className="card-container">
                 {songs.map((hit) => (
-                <Note reloadData={loadData}>
+                <Note>
                 {hit}
                 </Note>
                 ))}
