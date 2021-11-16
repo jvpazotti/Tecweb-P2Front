@@ -32,24 +32,26 @@ export default function Search(props){
         for (var [key, song] in Object.entries(response.data)) {
           favs.push(response.data[key].song_id)
         }
-        console.log(favs);
       }).then(
         axios.request(options).then((response)=> {
   
           let music = []
           console.log(response.data)
-          console.log(Object.values(favs))
     
           for (let i = 0; i<10; i++) {
             let id = response.data.response.hits[`${i}`]["result"]["id"]
             let song = response.data.response.hits[`${i}`]["result"]["title"]
             let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
-            console.log(id in Object.values(favs))
-            if (id in Object.values(favs)) {
-              music.push([song, artist, id, true])
-            } else {
-              music.push([song, artist, id, false])
+            let is_fav = null;
+            for (var [key, fav_id] in Object.values(favs)) {
+              if (id == fav_id) {
+                is_fav = true;
+              } else {
+                is_fav = false;
+              }
             }
+            console.log(`${song} is favorite? : ${is_fav}`);
+            music.push([song, artist, id, is_fav]);
             
           }
     
