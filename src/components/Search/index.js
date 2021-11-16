@@ -38,11 +38,13 @@ export default function Search(props){
   
           let music = []
           console.log(response.data)
+          console.log(Object.values(favs))
     
           for (let i = 0; i<10; i++) {
             let id = response.data.response.hits[`${i}`]["result"]["id"]
             let song = response.data.response.hits[`${i}`]["result"]["title"]
             let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
+            console.log(id in Object.values(favs))
             if (id in Object.values(favs)) {
               music.push([song, artist, id, true])
             } else {
