@@ -37,17 +37,16 @@ export default function Search(props){
   
           let music = []
           console.log(response.data)
-          console.log(Object.entries(favs))
     
           for (let i = 0; i<10; i++) {
             let id = response.data.response.hits[`${i}`]["result"]["id"]
             let song = response.data.response.hits[`${i}`]["result"]["title"]
             let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
             let is_fav = null;
-            for (var [key, fav_id] in Object.entries(favs)) {
-              console.log(`id da lista: ${fav_id}`);
+            for (var [fav_key, fav_id] in Object.entries(favs)) {
+              console.log(`id da lista: ${favs[fav_key]}`);
               console.log(`id da musica: ${id}`);
-              if (id == fav_id) {
+              if (id == favs[fav_key]) {
                 is_fav = true;
               } else {
                 is_fav = false;
