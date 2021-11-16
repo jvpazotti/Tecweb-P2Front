@@ -14,9 +14,17 @@ export default function Note(props) {
   }
 
   const loadData = (id) => {
-    axios.post("https://dummiosback.herokuapp.com",{'id':id}).then((response) => {
-      console.log(response);
-    });
+
+    if (props.children[3]) {
+      axios.post("https://dummiosback.herokuapp.com/homeDel",{'id':id}).then((response) => {
+        console.log(response);
+      });
+    } else {
+      axios.post("https://dummiosback.herokuapp.com",{'id':id}).then((response) => {
+        console.log(response);
+      });
+    }
+
   }
 
   const SetFavorite = (event) => {
