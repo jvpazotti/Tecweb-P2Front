@@ -37,6 +37,7 @@ export default function Search(props){
   
           let music = []
           console.log(response.data)
+          console.log(Object.entries(favs))
     
           for (let i = 0; i<10; i++) {
             let id = response.data.response.hits[`${i}`]["result"]["id"]
