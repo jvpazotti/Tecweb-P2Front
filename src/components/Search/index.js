@@ -44,6 +44,8 @@ export default function Search(props){
             let artist = response.data.response.hits[`${i}`]["result"]["artist_names"]
             let is_fav = null;
             for (var [key, fav_id] in Object.values(favs)) {
+              console.log(`id da lista: ${fav_id}`);
+              console.log(`id da musica: ${id}`);
               if (id == fav_id) {
                 is_fav = true;
               } else {
